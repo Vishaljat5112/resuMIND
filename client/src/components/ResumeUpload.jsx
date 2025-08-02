@@ -21,7 +21,7 @@ const ResumeUpload = () => {
 
     try {
       setLoading(true); //  start spinner
-      const response = await axios.post("http://localhost:5000/api/resume/analyze", formData);
+      const response = await axios.post("https://resu-mind-backend.onrender.com/api/resume/analyze", formData);
       console.log("Upload success:", response.data);
       navigate("/result", { state: { data: response.data } });
     } catch (error) {

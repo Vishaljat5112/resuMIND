@@ -22,7 +22,7 @@ const Home = () => {
 
     try {
       setLoading(true);
-      const response = await axios.post("http://localhost:5000/api/resume/analyze", formData);
+const response = await axios.post("https://resu-mind-backend.onrender.com/api/resume/analyze", formData);
       console.log("Response data from server:", response.data);
       navigate('/result', { state: response.data });
     } catch (error) {
