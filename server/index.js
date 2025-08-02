@@ -7,7 +7,10 @@ console.log('Resume routes path:', require.resolve('./routes/resumeRoutes'));
 // Ensure the path is correct and the file exists
 dotenv.config();
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: 'https://resu-mind-kll4vob6a-vishal-jats-projects-9cf473bc.vercel.app',
+  credentials: true
+}));
 app.use(express.json());
 
 app.get('/check', (req, res) => {
