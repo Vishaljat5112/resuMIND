@@ -5,7 +5,7 @@ const axios = require("axios");
 const storage = multer.memoryStorage();
 const upload = multer({ storage }).single("resume");
 
-// 🔹 Helper functions
+
 const extractEmail = (text) => {
   const match = text.match(/[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/);
   return match ? match[0] : "N/A";
@@ -24,7 +24,7 @@ const extractName = (text) => {
   return lines.length > 0 ? lines[0].replace(/[^a-zA-Z ]/g, "") : "N/A";
 };
 
-// 🔹 Controller function
+
 const uploadResume = async (req, res) => {
   upload(req, res, async (err) => {
     try {
