@@ -3,13 +3,13 @@ const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
 
-// ✅ Routes
+
 const resumeRoutes = require("./routes/resumeRoutes");
 
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// ✅ CORS Middleware
+//  CORS Middleware
 app.use(
   cors({
     origin: [
@@ -24,7 +24,7 @@ app.use(
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// ✅ Health check routes
+
 app.get("/", (req, res) => {
   res.send("Backend is running...");
 });
@@ -33,7 +33,7 @@ app.get("/check", (req, res) => {
   res.send("Server is up and running!");
 });
 
-// ✅ Connect to MongoDB
+
 if (process.env.MONGO_URI) {
   mongoose
     .connect(process.env.MONGO_URI, {
@@ -46,7 +46,7 @@ if (process.env.MONGO_URI) {
   console.warn("⚠ No MONGO_URI found in .env, skipping MongoDB connection");
 }
 
-// ✅ API Routes
+
 app.use("/api/resume", resumeRoutes);
 
 // ✅ Start server
